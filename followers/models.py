@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Relationship(models.Model):
+    unique_together = ("origin", "target")  # funcionaría con postgresql o mysql
 
     origin = models.ForeignKey(User, related_name='relationship_origin')  # usuario que sigue
     target = models.ForeignKey(User, related_name='relationship_target')  # usuario al que sigue
